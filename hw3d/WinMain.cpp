@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /******************************************************************************************
 *	Chili Direct3D Engine																  *
 *	Copyright 2018 PlanetChili <http://www.planetchili.net>								  *
@@ -20,6 +21,26 @@
 #include "App.h"
 
 
+=======
+#include <Windows.h>
+#include "WindowsMessageMap.h"
+
+LRESULT CALLBACK WndProc( HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam )
+{
+	static WindowsMessageMap mm;
+	OutputDebugString( mm( msg,lParam,wParam ).c_str() );
+
+	switch( msg )
+	{
+	case WM_CLOSE:
+		PostQuitMessage( 69 );
+		break;
+	}
+
+	return DefWindowProc( hWnd,msg,wParam,lParam );
+}
+
+>>>>>>> parent of 1046bb2... wm key stuff
 int CALLBACK WinMain(
 	HINSTANCE hInstance,
 	HINSTANCE hPrevInstance,
